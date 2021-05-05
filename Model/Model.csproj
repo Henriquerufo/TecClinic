@@ -43,10 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModelAgendamentos.cs" />
     <Compile Include="ModelCliente.cs" />
     <Compile Include="ModelConfiguracaoSQL.cs" />
     <Compile Include="ModelConfiguracaoSQLCentral.cs" />
     <Compile Include="ModelLogin.cs" />
+    <Compile Include="ModelServicos.cs" />
     <Compile Include="ModelTema.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

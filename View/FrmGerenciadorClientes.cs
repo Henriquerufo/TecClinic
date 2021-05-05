@@ -33,6 +33,7 @@ namespace View
                 {
                     dgvCadastrados.DataSource = controllerCliente.CarregarClientePorNome(txtProcurar.Text);
                 }
+                lblExibidosTotal.Text = "Exibidos total: " + dgvCadastrados.Rows.Count;
             }
             catch (Exception ex)
             {
@@ -155,7 +156,12 @@ namespace View
             try
             {
                 modelCliente.Codigo = Convert.ToInt32(dgvCadastrados.CurrentRow.Cells["Codigo"].Value.ToString());
-                controllerCliente.Deletar(modelCliente);
+                modelCliente.Nome = dgvCadastrados.CurrentRow.Cells["Nome"].Value.ToString();
+                var result = MessageBox.Show("O cliente: " + modelCliente.Nome + " será excluido", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (result == DialogResult.OK)
+                {
+                    controllerCliente.Deletar(modelCliente);
+                }
             }
             catch (Exception ex)
             {

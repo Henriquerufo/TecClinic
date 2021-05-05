@@ -66,5 +66,11 @@ namespace View
             FrmGerenciadorClientes frmGerenciadorClientes = new FrmGerenciadorClientes();
             frmGerenciadorClientes.Show();
         }
+
+        private void consultarListaToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FrmGerenciadorServicos frmGerenciadorServicos = new FrmGerenciadorServicos();
+            frmGerenciadorServicos.Show();
+        }
     }
 }

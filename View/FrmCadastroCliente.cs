@@ -201,7 +201,6 @@ namespace View
                 pnlHabitosHistoricoClinicoDaCliente.Enabled = false;
                 btnCancelar.Text = "Fechar";
                 txtNome.ReadOnly = true;
-                txtData.ReadOnly = true;
                 codigo = modelCliente.Codigo;
                 txtNome.Text = modelCliente.Nome;
                 txtEndereco.Text = modelCliente.Endereco;
@@ -384,28 +383,48 @@ namespace View
                 btnCadastrar.Visible = false;
                 CarregarCampos();
             }
+            else if (modelCliente.acao == "Cadastrar")
+            {
+                acao = modelCliente.acao;
+                txtData.Value = DateTime.Now;
+            }
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            if (acao == "Cadastrar")
+            try
             {
-                modelCliente.Nome = txtNome.Text;
-                CamposCrud();
-                controllerCliente.Cadastrar(modelCliente);
+                if (acao == "Cadastrar" && btnCadastrar.Text == "Cadastrar")
+                {
+                    modelCliente.Nome = txtNome.Text;
+                    CamposCrud();
+                    if (controllerCliente.Cadastrar(modelCliente))
+                    {
+                        MessageBox.Show("Cadastrado com sucesso!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                }
+                else if (acao == "Editar" && btnCadastrar.Text == "Editar")
+                {
+                    pnlInformacoesDoCliente.Enabled = true;
+                    pnlHabitosHistoricoClinicoDaCliente.Enabled = true;
+                    btnCadastrar.Text = "Salvar";
+                    btnCancelar.Text = "Cancelar";
+                }
+                else if (acao == "Editar" && btnCadastrar.Text == "Salvar")
+                {
+                    modelCliente.Codigo = codigo;
+                    CamposCrud();
+                    if (controllerCliente.Editar(modelCliente))
+                    {
+                        MessageBox.Show("Editado com sucesso!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                }
             }
-            else if (acao == "Editar" && btnCadastrar.Text == "Editar")
+            catch (Exception ex)
             {
-                pnlInformacoesDoCliente.Enabled = true;
-                pnlHabitosHistoricoClinicoDaCliente.Enabled = true;
-                btnCadastrar.Text = "Salvar";
-                btnCancelar.Text = "Cancelar";
-            }
-            else if (acao == "Editar" && btnCadastrar.Text == "Salvar")
-            {
-                modelCliente.Codigo = codigo;
-                CamposCrud();
-                controllerCliente.Editar(modelCliente);
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -56,6 +56,12 @@
     <Compile Include="FrmCadastrarTema.Designer.cs">
       <DependentUpon>FrmCadastrarTema.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCadastroAgendamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadastroAgendamento.Designer.cs">
+      <DependentUpon>FrmCadastroAgendamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCadastroCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,11 +74,23 @@
     <Compile Include="FrmCadastroLogin.Designer.cs">
       <DependentUpon>FrmCadastroLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCadastroServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadastroServico.Designer.cs">
+      <DependentUpon>FrmCadastroServico.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmConfiguracaoSQL.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmConfiguracaoSQL.Designer.cs">
       <DependentUpon>FrmConfiguracaoSQL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGerenciadorAgendamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGerenciadorAgendamentos.Designer.cs">
+      <DependentUpon>FrmGerenciadorAgendamentos.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmGerenciadorClientes.cs">
       <SubType>Form</SubType>
@@ -85,6 +103,12 @@
     </Compile>
     <Compile Include="FrmGerenciadorLogins.Designer.cs">
       <DependentUpon>FrmGerenciadorLogins.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGerenciadorServicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGerenciadorServicos.Designer.cs">
+      <DependentUpon>FrmGerenciadorServicos.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmGerenciadorTema.cs">
       <SubType>Form</SubType>
@@ -125,11 +149,23 @@
     <EmbeddedResource Include="FrmCadastrarTema.resx">
       <DependentUpon>FrmCadastrarTema.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadastroAgendamento.resx">
+      <DependentUpon>FrmCadastroAgendamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCadastroCliente.resx">
       <DependentUpon>FrmCadastroCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadastroServico.resx">
+      <DependentUpon>FrmCadastroServico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGerenciadorAgendamentos.resx">
+      <DependentUpon>FrmGerenciadorAgendamentos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGerenciadorClientes.resx">
       <DependentUpon>FrmGerenciadorClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGerenciadorServicos.resx">
+      <DependentUpon>FrmGerenciadorServicos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
