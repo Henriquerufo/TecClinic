@@ -33,7 +33,7 @@ namespace Controller
         {
             try
             {
-                string instrucao = string.Format("SELECT * FROM tbLogin WHERE ID LIKE '%" + Procurar + "%'");
+                string instrucao = string.Format("SELECT TOP (1000) * FROM tbLogin WHERE ID LIKE '%" + Procurar + "%'");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 SqlDataAdapter da = new SqlDataAdapter(command);
                 DataTable dt = new DataTable();
@@ -53,7 +53,7 @@ namespace Controller
         {
             try
             {
-                string instrucao = string.Format("SELECT * FROM tbLogin WHERE Nivel = '" + nivel + "' and ID LIKE '%" + ID + "%'");
+                string instrucao = string.Format("SELECT TOP (1000) * FROM tbLogin WHERE Nivel = '" + nivel + "' and ID LIKE '%" + ID + "%'");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 SqlDataAdapter da = new SqlDataAdapter(command);
                 DataTable dt = new DataTable();
@@ -177,7 +177,7 @@ namespace Controller
         {
             try
             {
-                string instrucao = string.Format(@"SELECT * FROM tbLogLogin WHERE idTecSistemas = '" + idTecSistemas + "' AND Nome = '" + id + "' AND Codigo = '" + codigo + "'");
+                string instrucao = string.Format(@"SELECT TOP (1000) * FROM tbLogLogin WHERE idTecSistemas = '" + idTecSistemas + "' AND Nome = '" + id + "' AND Codigo = '" + codigo + "'");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
                 DataTable dataTable = new DataTable();
@@ -197,7 +197,7 @@ namespace Controller
         {
             try
             {
-                string instrucao = string.Format(@"SELECT * FROM tbLogLogin WHERE idTecSistemas = '" + idTecSistemas + "' AND Nome = '" + id + "' AND UltimoLog LIKE '%" + ultimoLog + "%'");
+                string instrucao = string.Format(@"SELECT TOP (1000) * FROM tbLogLogin WHERE idTecSistemas = '" + idTecSistemas + "' AND Nome = '" + id + "' AND UltimoLog LIKE '%" + ultimoLog + "%'");
                 SqlCommand command = new SqlCommand(instrucao, controllerConfiguracaoSQL.Conectar());
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
                 DataTable dataTable = new DataTable();

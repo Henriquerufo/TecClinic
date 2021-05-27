@@ -353,7 +353,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmGerenciadorTema";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmGerenciadorTema";
+            this.Text = "Tec Clinic: Gerenciador de Temas";
             ((System.ComponentModel.ISupportInitialize)(this.dgvTemaAtivo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvTema)).EndInit();
             this.panel2.ResumeLayout(false);

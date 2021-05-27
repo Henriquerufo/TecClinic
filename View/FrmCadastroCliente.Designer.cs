@@ -28,12 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtData = new System.Windows.Forms.DateTimePicker();
+            this.label19 = new System.Windows.Forms.Label();
             this.pnlInformacoesDoCliente = new System.Windows.Forms.Panel();
+            this.ProcurarCliente = new System.Windows.Forms.Button();
+            this.txtFilhos = new System.Windows.Forms.NumericUpDown();
+            this.txtIdade = new System.Windows.Forms.NumericUpDown();
+            this.txtDn = new System.Windows.Forms.DateTimePicker();
             this.rtbTratamentoAnteriorQuais = new System.Windows.Forms.RichTextBox();
             this.rtbHistoriaMolestia = new System.Windows.Forms.RichTextBox();
             this.rtbQueixaPrincipalObjetivoCliente = new System.Windows.Forms.RichTextBox();
@@ -44,7 +50,6 @@
             this.txtProfissao = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.txtEstadoCivil = new System.Windows.Forms.TextBox();
             this.cbxSexo = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -159,23 +164,43 @@
             this.label20 = new System.Windows.Forms.Label();
             this.tpHistorico = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.rbEmAberto = new System.Windows.Forms.RadioButton();
+            this.rbFinalizado = new System.Windows.Forms.RadioButton();
+            this.dgvHistoricoCliente = new System.Windows.Forms.DataGridView();
+            this.Cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CadastradoPor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataAgendamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoraAgendamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StatusAgendamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecebidoPor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataRecebimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OpcaoPagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dinheiro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cartao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ticket = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StatusPagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ObsConsulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.txtDn = new System.Windows.Forms.DateTimePicker();
-            this.txtIdade = new System.Windows.Forms.NumericUpDown();
-            this.txtFilhos = new System.Windows.Forms.NumericUpDown();
-            this.txtData = new System.Windows.Forms.DateTimePicker();
-            this.label19 = new System.Windows.Forms.Label();
+            this.dtpAte = new System.Windows.Forms.DateTimePicker();
+            this.dtpDe = new System.Windows.Forms.DateTimePicker();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.txtEstadoCivil = new System.Windows.Forms.ComboBox();
+            this.lblCampoObrigatorio = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.pnlInformacoesDoCliente.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFilhos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdade)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.pnlHabitosHistoricoClinicoDaCliente.SuspendLayout();
@@ -197,10 +222,8 @@
             this.panel18.SuspendLayout();
             this.tpHistorico.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistoricoCliente)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIdade)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFilhos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCadastrar
@@ -221,6 +244,7 @@
             this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // tabControl
             // 
@@ -235,6 +259,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lblCampoObrigatorio);
             this.tabPage1.Controls.Add(this.txtData);
             this.tabPage1.Controls.Add(this.label19);
             this.tabPage1.Controls.Add(this.pnlInformacoesDoCliente);
@@ -246,8 +271,28 @@
             this.tabPage1.Text = "Informações do Cliente";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // txtData
+            // 
+            this.txtData.Enabled = false;
+            this.txtData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtData.Location = new System.Drawing.Point(525, 6);
+            this.txtData.Name = "txtData";
+            this.txtData.Size = new System.Drawing.Size(97, 20);
+            this.txtData.TabIndex = 83;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(426, 10);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(93, 13);
+            this.label19.TabIndex = 82;
+            this.label19.Text = "Data do Cadastro:";
+            // 
             // pnlInformacoesDoCliente
             // 
+            this.pnlInformacoesDoCliente.Controls.Add(this.txtEstadoCivil);
+            this.pnlInformacoesDoCliente.Controls.Add(this.ProcurarCliente);
             this.pnlInformacoesDoCliente.Controls.Add(this.txtFilhos);
             this.pnlInformacoesDoCliente.Controls.Add(this.txtIdade);
             this.pnlInformacoesDoCliente.Controls.Add(this.txtDn);
@@ -261,7 +306,6 @@
             this.pnlInformacoesDoCliente.Controls.Add(this.txtProfissao);
             this.pnlInformacoesDoCliente.Controls.Add(this.label15);
             this.pnlInformacoesDoCliente.Controls.Add(this.label14);
-            this.pnlInformacoesDoCliente.Controls.Add(this.txtEstadoCivil);
             this.pnlInformacoesDoCliente.Controls.Add(this.cbxSexo);
             this.pnlInformacoesDoCliente.Controls.Add(this.label13);
             this.pnlInformacoesDoCliente.Controls.Add(this.label12);
@@ -288,6 +332,49 @@
             this.pnlInformacoesDoCliente.Name = "pnlInformacoesDoCliente";
             this.pnlInformacoesDoCliente.Size = new System.Drawing.Size(629, 413);
             this.pnlInformacoesDoCliente.TabIndex = 0;
+            // 
+            // ProcurarCliente
+            // 
+            this.ProcurarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProcurarCliente.Location = new System.Drawing.Point(553, 5);
+            this.ProcurarCliente.Name = "ProcurarCliente";
+            this.ProcurarCliente.Size = new System.Drawing.Size(69, 24);
+            this.ProcurarCliente.TabIndex = 101;
+            this.ProcurarCliente.Text = "Procurar";
+            this.ProcurarCliente.UseVisualStyleBackColor = true;
+            this.ProcurarCliente.Click += new System.EventHandler(this.ProcurarCliente_Click);
+            // 
+            // txtFilhos
+            // 
+            this.txtFilhos.Location = new System.Drawing.Point(573, 111);
+            this.txtFilhos.Name = "txtFilhos";
+            this.txtFilhos.Size = new System.Drawing.Size(49, 20);
+            this.txtFilhos.TabIndex = 80;
+            // 
+            // txtIdade
+            // 
+            this.txtIdade.Location = new System.Drawing.Point(359, 111);
+            this.txtIdade.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtIdade.Name = "txtIdade";
+            this.txtIdade.Size = new System.Drawing.Size(49, 20);
+            this.txtIdade.TabIndex = 79;
+            this.txtIdade.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // txtDn
+            // 
+            this.txtDn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtDn.Location = new System.Drawing.Point(219, 111);
+            this.txtDn.Name = "txtDn";
+            this.txtDn.Size = new System.Drawing.Size(97, 20);
+            this.txtDn.TabIndex = 78;
             // 
             // rtbTratamentoAnteriorQuais
             // 
@@ -359,25 +446,18 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(214, 141);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(53, 13);
+            this.label15.Size = new System.Drawing.Size(57, 13);
             this.label15.TabIndex = 66;
-            this.label15.Text = "Profissão:";
+            this.label15.Text = "Profissão:*";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(530, 115);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(37, 13);
+            this.label14.Size = new System.Drawing.Size(41, 13);
             this.label14.TabIndex = 65;
-            this.label14.Text = "Filhos:";
-            // 
-            // txtEstadoCivil
-            // 
-            this.txtEstadoCivil.Location = new System.Drawing.Point(76, 137);
-            this.txtEstadoCivil.Name = "txtEstadoCivil";
-            this.txtEstadoCivil.Size = new System.Drawing.Size(132, 20);
-            this.txtEstadoCivil.TabIndex = 64;
+            this.label14.Text = "Filhos:*";
             // 
             // cbxSexo
             // 
@@ -396,36 +476,36 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(6, 141);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(64, 13);
+            this.label13.Size = new System.Drawing.Size(68, 13);
             this.label13.TabIndex = 62;
-            this.label13.Text = "Estado civil:";
+            this.label13.Text = "Estado civil:*";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(414, 115);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(34, 13);
+            this.label12.Size = new System.Drawing.Size(38, 13);
             this.label12.TabIndex = 61;
-            this.label12.Text = "Sexo:";
+            this.label12.Text = "Sexo:*";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(322, 115);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(37, 13);
+            this.label11.Size = new System.Drawing.Size(41, 13);
             this.label11.TabIndex = 59;
-            this.label11.Text = "Idade:";
+            this.label11.Text = "Idade:*";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(187, 115);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(26, 13);
+            this.label10.Size = new System.Drawing.Size(30, 13);
             this.label10.TabIndex = 57;
-            this.label10.Text = "DN:";
+            this.label10.Text = "DN:*";
             // 
             // txtTelefone
             // 
@@ -462,18 +542,18 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(6, 90);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 13);
+            this.label8.Size = new System.Drawing.Size(33, 13);
             this.label8.TabIndex = 52;
-            this.label8.Text = "Cep:";
+            this.label8.Text = "Cep:*";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(6, 115);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 13);
+            this.label7.Size = new System.Drawing.Size(56, 13);
             this.label7.TabIndex = 51;
-            this.label7.Text = "Telefones:";
+            this.label7.Text = "Telefone:*";
             // 
             // txtCidade
             // 
@@ -487,9 +567,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(274, 64);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 13);
+            this.label6.Size = new System.Drawing.Size(47, 13);
             this.label6.TabIndex = 49;
-            this.label6.Text = "Cidade:";
+            this.label6.Text = "Cidade:*";
             // 
             // txtBairro
             // 
@@ -503,9 +583,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(6, 65);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 13);
+            this.label5.Size = new System.Drawing.Size(41, 13);
             this.label5.TabIndex = 47;
-            this.label5.Text = "Bairro:";
+            this.label5.Text = "Bairro:*";
             // 
             // label4
             // 
@@ -532,13 +612,13 @@
             this.rbSimTratamentosAnteriores.Name = "rbSimTratamentosAnteriores";
             this.rbSimTratamentosAnteriores.Size = new System.Drawing.Size(42, 17);
             this.rbSimTratamentosAnteriores.TabIndex = 0;
-            this.rbSimTratamentosAnteriores.TabStop = true;
             this.rbSimTratamentosAnteriores.Text = "Sim";
             this.rbSimTratamentosAnteriores.UseVisualStyleBackColor = true;
             // 
             // rbNaoTratamentosAnteriores
             // 
             this.rbNaoTratamentosAnteriores.AutoSize = true;
+            this.rbNaoTratamentosAnteriores.Checked = true;
             this.rbNaoTratamentosAnteriores.Location = new System.Drawing.Point(50, 4);
             this.rbNaoTratamentosAnteriores.Name = "rbNaoTratamentosAnteriores";
             this.rbNaoTratamentosAnteriores.Size = new System.Drawing.Size(45, 17);
@@ -568,15 +648,15 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 42;
-            this.label2.Text = "Endereço:";
+            this.label2.Text = "Endereço:*";
             // 
             // txtNome
             // 
             this.txtNome.Location = new System.Drawing.Point(50, 9);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(572, 20);
+            this.txtNome.Size = new System.Drawing.Size(497, 20);
             this.txtNome.TabIndex = 41;
             // 
             // label1
@@ -584,9 +664,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.Size = new System.Drawing.Size(42, 13);
             this.label1.TabIndex = 40;
-            this.label1.Text = "Nome:";
+            this.label1.Text = "Nome:*";
             // 
             // tabPage2
             // 
@@ -683,13 +763,13 @@
             this.rbSimTrombose.Name = "rbSimTrombose";
             this.rbSimTrombose.Size = new System.Drawing.Size(42, 17);
             this.rbSimTrombose.TabIndex = 0;
-            this.rbSimTrombose.TabStop = true;
             this.rbSimTrombose.Text = "Sim";
             this.rbSimTrombose.UseVisualStyleBackColor = true;
             // 
             // rbNaoTrombose
             // 
             this.rbNaoTrombose.AutoSize = true;
+            this.rbNaoTrombose.Checked = true;
             this.rbNaoTrombose.Location = new System.Drawing.Point(50, 4);
             this.rbNaoTrombose.Name = "rbNaoTrombose";
             this.rbNaoTrombose.Size = new System.Drawing.Size(45, 17);
@@ -730,13 +810,13 @@
             this.rbSimCancer.Name = "rbSimCancer";
             this.rbSimCancer.Size = new System.Drawing.Size(42, 17);
             this.rbSimCancer.TabIndex = 0;
-            this.rbSimCancer.TabStop = true;
             this.rbSimCancer.Text = "Sim";
             this.rbSimCancer.UseVisualStyleBackColor = true;
             // 
             // rbNaoCancer
             // 
             this.rbNaoCancer.AutoSize = true;
+            this.rbNaoCancer.Checked = true;
             this.rbNaoCancer.Location = new System.Drawing.Point(50, 4);
             this.rbNaoCancer.Name = "rbNaoCancer";
             this.rbNaoCancer.Size = new System.Drawing.Size(45, 17);
@@ -786,13 +866,13 @@
             this.rbSimIngereBastanteAgua.Name = "rbSimIngereBastanteAgua";
             this.rbSimIngereBastanteAgua.Size = new System.Drawing.Size(42, 17);
             this.rbSimIngereBastanteAgua.TabIndex = 0;
-            this.rbSimIngereBastanteAgua.TabStop = true;
             this.rbSimIngereBastanteAgua.Text = "Sim";
             this.rbSimIngereBastanteAgua.UseVisualStyleBackColor = true;
             // 
             // rbNaoIngereBastanteAgua
             // 
             this.rbNaoIngereBastanteAgua.AutoSize = true;
+            this.rbNaoIngereBastanteAgua.Checked = true;
             this.rbNaoIngereBastanteAgua.Location = new System.Drawing.Point(50, 4);
             this.rbNaoIngereBastanteAgua.Name = "rbNaoIngereBastanteAgua";
             this.rbNaoIngereBastanteAgua.Size = new System.Drawing.Size(45, 17);
@@ -833,13 +913,13 @@
             this.rbSimTemDiabetesOuHipertensao.Name = "rbSimTemDiabetesOuHipertensao";
             this.rbSimTemDiabetesOuHipertensao.Size = new System.Drawing.Size(42, 17);
             this.rbSimTemDiabetesOuHipertensao.TabIndex = 0;
-            this.rbSimTemDiabetesOuHipertensao.TabStop = true;
             this.rbSimTemDiabetesOuHipertensao.Text = "Sim";
             this.rbSimTemDiabetesOuHipertensao.UseVisualStyleBackColor = true;
             // 
             // rbNaoTemDiabetesOuHipertensao
             // 
             this.rbNaoTemDiabetesOuHipertensao.AutoSize = true;
+            this.rbNaoTemDiabetesOuHipertensao.Checked = true;
             this.rbNaoTemDiabetesOuHipertensao.Location = new System.Drawing.Point(50, 4);
             this.rbNaoTemDiabetesOuHipertensao.Name = "rbNaoTemDiabetesOuHipertensao";
             this.rbNaoTemDiabetesOuHipertensao.Size = new System.Drawing.Size(45, 17);
@@ -880,13 +960,13 @@
             this.rbSimPortadorDeEpolepsia.Name = "rbSimPortadorDeEpolepsia";
             this.rbSimPortadorDeEpolepsia.Size = new System.Drawing.Size(42, 17);
             this.rbSimPortadorDeEpolepsia.TabIndex = 0;
-            this.rbSimPortadorDeEpolepsia.TabStop = true;
             this.rbSimPortadorDeEpolepsia.Text = "Sim";
             this.rbSimPortadorDeEpolepsia.UseVisualStyleBackColor = true;
             // 
             // rbNaoPortadorDeEpolepsia
             // 
             this.rbNaoPortadorDeEpolepsia.AutoSize = true;
+            this.rbNaoPortadorDeEpolepsia.Checked = true;
             this.rbNaoPortadorDeEpolepsia.Location = new System.Drawing.Point(50, 4);
             this.rbNaoPortadorDeEpolepsia.Name = "rbNaoPortadorDeEpolepsia";
             this.rbNaoPortadorDeEpolepsia.Size = new System.Drawing.Size(45, 17);
@@ -927,13 +1007,13 @@
             this.rbSimPresencaDeProteseMetalica.Name = "rbSimPresencaDeProteseMetalica";
             this.rbSimPresencaDeProteseMetalica.Size = new System.Drawing.Size(42, 17);
             this.rbSimPresencaDeProteseMetalica.TabIndex = 0;
-            this.rbSimPresencaDeProteseMetalica.TabStop = true;
             this.rbSimPresencaDeProteseMetalica.Text = "Sim";
             this.rbSimPresencaDeProteseMetalica.UseVisualStyleBackColor = true;
             // 
             // rbNaoPresencaDeProteseMetalica
             // 
             this.rbNaoPresencaDeProteseMetalica.AutoSize = true;
+            this.rbNaoPresencaDeProteseMetalica.Checked = true;
             this.rbNaoPresencaDeProteseMetalica.Location = new System.Drawing.Point(50, 4);
             this.rbNaoPresencaDeProteseMetalica.Name = "rbNaoPresencaDeProteseMetalica";
             this.rbNaoPresencaDeProteseMetalica.Size = new System.Drawing.Size(45, 17);
@@ -974,13 +1054,13 @@
             this.rbSimTemAlgumProblemaCardiovascular.Name = "rbSimTemAlgumProblemaCardiovascular";
             this.rbSimTemAlgumProblemaCardiovascular.Size = new System.Drawing.Size(42, 17);
             this.rbSimTemAlgumProblemaCardiovascular.TabIndex = 0;
-            this.rbSimTemAlgumProblemaCardiovascular.TabStop = true;
             this.rbSimTemAlgumProblemaCardiovascular.Text = "Sim";
             this.rbSimTemAlgumProblemaCardiovascular.UseVisualStyleBackColor = true;
             // 
             // rbNaoTemAlgumProblemaCardiovascular
             // 
             this.rbNaoTemAlgumProblemaCardiovascular.AutoSize = true;
+            this.rbNaoTemAlgumProblemaCardiovascular.Checked = true;
             this.rbNaoTemAlgumProblemaCardiovascular.Location = new System.Drawing.Point(50, 4);
             this.rbNaoTemAlgumProblemaCardiovascular.Name = "rbNaoTemAlgumProblemaCardiovascular";
             this.rbNaoTemAlgumProblemaCardiovascular.Size = new System.Drawing.Size(45, 17);
@@ -1021,13 +1101,13 @@
             this.rbSimPortadorMarcaPasso.Name = "rbSimPortadorMarcaPasso";
             this.rbSimPortadorMarcaPasso.Size = new System.Drawing.Size(42, 17);
             this.rbSimPortadorMarcaPasso.TabIndex = 0;
-            this.rbSimPortadorMarcaPasso.TabStop = true;
             this.rbSimPortadorMarcaPasso.Text = "Sim";
             this.rbSimPortadorMarcaPasso.UseVisualStyleBackColor = true;
             // 
             // rbNaoPortadorMarcaPasso
             // 
             this.rbNaoPortadorMarcaPasso.AutoSize = true;
+            this.rbNaoPortadorMarcaPasso.Checked = true;
             this.rbNaoPortadorMarcaPasso.Location = new System.Drawing.Point(50, 4);
             this.rbNaoPortadorMarcaPasso.Name = "rbNaoPortadorMarcaPasso";
             this.rbNaoPortadorMarcaPasso.Size = new System.Drawing.Size(45, 17);
@@ -1068,13 +1148,13 @@
             this.rbSimCicloMenstrualRegular.Name = "rbSimCicloMenstrualRegular";
             this.rbSimCicloMenstrualRegular.Size = new System.Drawing.Size(42, 17);
             this.rbSimCicloMenstrualRegular.TabIndex = 0;
-            this.rbSimCicloMenstrualRegular.TabStop = true;
             this.rbSimCicloMenstrualRegular.Text = "Sim";
             this.rbSimCicloMenstrualRegular.UseVisualStyleBackColor = true;
             // 
             // rbNaoCicloMenstrualRegular
             // 
             this.rbNaoCicloMenstrualRegular.AutoSize = true;
+            this.rbNaoCicloMenstrualRegular.Checked = true;
             this.rbNaoCicloMenstrualRegular.Location = new System.Drawing.Point(50, 4);
             this.rbNaoCicloMenstrualRegular.Name = "rbNaoCicloMenstrualRegular";
             this.rbNaoCicloMenstrualRegular.Size = new System.Drawing.Size(45, 17);
@@ -1131,13 +1211,13 @@
             this.rbSimEGestanteOuEstaAmamentando.Name = "rbSimEGestanteOuEstaAmamentando";
             this.rbSimEGestanteOuEstaAmamentando.Size = new System.Drawing.Size(42, 17);
             this.rbSimEGestanteOuEstaAmamentando.TabIndex = 0;
-            this.rbSimEGestanteOuEstaAmamentando.TabStop = true;
             this.rbSimEGestanteOuEstaAmamentando.Text = "Sim";
             this.rbSimEGestanteOuEstaAmamentando.UseVisualStyleBackColor = true;
             // 
             // rbNaoEGestanteOuEstaAmamentando
             // 
             this.rbNaoEGestanteOuEstaAmamentando.AutoSize = true;
+            this.rbNaoEGestanteOuEstaAmamentando.Checked = true;
             this.rbNaoEGestanteOuEstaAmamentando.Location = new System.Drawing.Point(50, 4);
             this.rbNaoEGestanteOuEstaAmamentando.Name = "rbNaoEGestanteOuEstaAmamentando";
             this.rbNaoEGestanteOuEstaAmamentando.Size = new System.Drawing.Size(45, 17);
@@ -1162,13 +1242,13 @@
             this.rbSimUsaAlgumTipoDeMedicamento.Name = "rbSimUsaAlgumTipoDeMedicamento";
             this.rbSimUsaAlgumTipoDeMedicamento.Size = new System.Drawing.Size(42, 17);
             this.rbSimUsaAlgumTipoDeMedicamento.TabIndex = 0;
-            this.rbSimUsaAlgumTipoDeMedicamento.TabStop = true;
             this.rbSimUsaAlgumTipoDeMedicamento.Text = "Sim";
             this.rbSimUsaAlgumTipoDeMedicamento.UseVisualStyleBackColor = true;
             // 
             // rbNaoUsaAlgumTipoDeMedicamento
             // 
             this.rbNaoUsaAlgumTipoDeMedicamento.AutoSize = true;
+            this.rbNaoUsaAlgumTipoDeMedicamento.Checked = true;
             this.rbNaoUsaAlgumTipoDeMedicamento.Location = new System.Drawing.Point(50, 4);
             this.rbNaoUsaAlgumTipoDeMedicamento.Name = "rbNaoUsaAlgumTipoDeMedicamento";
             this.rbNaoUsaAlgumTipoDeMedicamento.Size = new System.Drawing.Size(45, 17);
@@ -1227,13 +1307,13 @@
             this.rbSimFazAlgumTratamentoMedico.Name = "rbSimFazAlgumTratamentoMedico";
             this.rbSimFazAlgumTratamentoMedico.Size = new System.Drawing.Size(42, 17);
             this.rbSimFazAlgumTratamentoMedico.TabIndex = 0;
-            this.rbSimFazAlgumTratamentoMedico.TabStop = true;
             this.rbSimFazAlgumTratamentoMedico.Text = "Sim";
             this.rbSimFazAlgumTratamentoMedico.UseVisualStyleBackColor = true;
             // 
             // rbNaoFazAlgumTratamentoMedico
             // 
             this.rbNaoFazAlgumTratamentoMedico.AutoSize = true;
+            this.rbNaoFazAlgumTratamentoMedico.Checked = true;
             this.rbNaoFazAlgumTratamentoMedico.Location = new System.Drawing.Point(50, 4);
             this.rbNaoFazAlgumTratamentoMedico.Name = "rbNaoFazAlgumTratamentoMedico";
             this.rbNaoFazAlgumTratamentoMedico.Size = new System.Drawing.Size(45, 17);
@@ -1274,13 +1354,13 @@
             this.rbSimTemHabitoDeSeExporAoSol.Name = "rbSimTemHabitoDeSeExporAoSol";
             this.rbSimTemHabitoDeSeExporAoSol.Size = new System.Drawing.Size(42, 17);
             this.rbSimTemHabitoDeSeExporAoSol.TabIndex = 0;
-            this.rbSimTemHabitoDeSeExporAoSol.TabStop = true;
             this.rbSimTemHabitoDeSeExporAoSol.Text = "Sim";
             this.rbSimTemHabitoDeSeExporAoSol.UseVisualStyleBackColor = true;
             // 
             // rbNaoTemHabitoDeSeExporAoSol
             // 
             this.rbNaoTemHabitoDeSeExporAoSol.AutoSize = true;
+            this.rbNaoTemHabitoDeSeExporAoSol.Checked = true;
             this.rbNaoTemHabitoDeSeExporAoSol.Location = new System.Drawing.Point(50, 4);
             this.rbNaoTemHabitoDeSeExporAoSol.Name = "rbNaoTemHabitoDeSeExporAoSol";
             this.rbNaoTemHabitoDeSeExporAoSol.Size = new System.Drawing.Size(45, 17);
@@ -1321,13 +1401,13 @@
             this.rbSimPraticaAtividadeFisica.Name = "rbSimPraticaAtividadeFisica";
             this.rbSimPraticaAtividadeFisica.Size = new System.Drawing.Size(42, 17);
             this.rbSimPraticaAtividadeFisica.TabIndex = 0;
-            this.rbSimPraticaAtividadeFisica.TabStop = true;
             this.rbSimPraticaAtividadeFisica.Text = "Sim";
             this.rbSimPraticaAtividadeFisica.UseVisualStyleBackColor = true;
             // 
             // rbNaoPraticaAtividadeFisica
             // 
             this.rbNaoPraticaAtividadeFisica.AutoSize = true;
+            this.rbNaoPraticaAtividadeFisica.Checked = true;
             this.rbNaoPraticaAtividadeFisica.Location = new System.Drawing.Point(50, 4);
             this.rbNaoPraticaAtividadeFisica.Name = "rbNaoPraticaAtividadeFisica";
             this.rbNaoPraticaAtividadeFisica.Size = new System.Drawing.Size(45, 17);
@@ -1368,13 +1448,13 @@
             this.rbSimFuncionamentoIntestinalRegular.Name = "rbSimFuncionamentoIntestinalRegular";
             this.rbSimFuncionamentoIntestinalRegular.Size = new System.Drawing.Size(42, 17);
             this.rbSimFuncionamentoIntestinalRegular.TabIndex = 0;
-            this.rbSimFuncionamentoIntestinalRegular.TabStop = true;
             this.rbSimFuncionamentoIntestinalRegular.Text = "Sim";
             this.rbSimFuncionamentoIntestinalRegular.UseVisualStyleBackColor = true;
             // 
             // rbNaoFuncionamentoIntestinalRegular
             // 
             this.rbNaoFuncionamentoIntestinalRegular.AutoSize = true;
+            this.rbNaoFuncionamentoIntestinalRegular.Checked = true;
             this.rbNaoFuncionamentoIntestinalRegular.Location = new System.Drawing.Point(50, 4);
             this.rbNaoFuncionamentoIntestinalRegular.Name = "rbNaoFuncionamentoIntestinalRegular";
             this.rbNaoFuncionamentoIntestinalRegular.Size = new System.Drawing.Size(45, 17);
@@ -1431,13 +1511,13 @@
             this.rbSimAntecedentesAlergicos.Name = "rbSimAntecedentesAlergicos";
             this.rbSimAntecedentesAlergicos.Size = new System.Drawing.Size(42, 17);
             this.rbSimAntecedentesAlergicos.TabIndex = 0;
-            this.rbSimAntecedentesAlergicos.TabStop = true;
             this.rbSimAntecedentesAlergicos.Text = "Sim";
             this.rbSimAntecedentesAlergicos.UseVisualStyleBackColor = true;
             // 
             // rbNaoAntecedentesAlergicos
             // 
             this.rbNaoAntecedentesAlergicos.AutoSize = true;
+            this.rbNaoAntecedentesAlergicos.Checked = true;
             this.rbNaoAntecedentesAlergicos.Location = new System.Drawing.Point(50, 4);
             this.rbNaoAntecedentesAlergicos.Name = "rbNaoAntecedentesAlergicos";
             this.rbNaoAntecedentesAlergicos.Size = new System.Drawing.Size(45, 17);
@@ -1467,7 +1547,7 @@
             // tpHistorico
             // 
             this.tpHistorico.Controls.Add(this.groupBox2);
-            this.tpHistorico.Controls.Add(this.dataGridView1);
+            this.tpHistorico.Controls.Add(this.dgvHistoricoCliente);
             this.tpHistorico.Controls.Add(this.btnPesquisar);
             this.tpHistorico.Controls.Add(this.groupBox1);
             this.tpHistorico.Location = new System.Drawing.Point(4, 22);
@@ -1480,62 +1560,240 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Location = new System.Drawing.Point(6, 6);
+            this.groupBox2.Controls.Add(this.rbEmAberto);
+            this.groupBox2.Controls.Add(this.rbFinalizado);
+            this.groupBox2.Location = new System.Drawing.Point(6, 7);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(332, 78);
-            this.groupBox2.TabIndex = 7;
+            this.groupBox2.Size = new System.Drawing.Size(161, 48);
+            this.groupBox2.TabIndex = 99;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Filtro";
+            this.groupBox2.Text = "Status do Agendamento";
             // 
-            // textBox1
+            // rbEmAberto
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(320, 20);
-            this.textBox1.TabIndex = 1;
+            this.rbEmAberto.AutoSize = true;
+            this.rbEmAberto.Checked = true;
+            this.rbEmAberto.Location = new System.Drawing.Point(84, 22);
+            this.rbEmAberto.Name = "rbEmAberto";
+            this.rbEmAberto.Size = new System.Drawing.Size(74, 17);
+            this.rbEmAberto.TabIndex = 1;
+            this.rbEmAberto.TabStop = true;
+            this.rbEmAberto.Text = "Em Aberto";
+            this.rbEmAberto.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // rbFinalizado
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(106, 21);
-            this.comboBox1.TabIndex = 0;
+            this.rbFinalizado.AutoSize = true;
+            this.rbFinalizado.Location = new System.Drawing.Point(6, 22);
+            this.rbFinalizado.Name = "rbFinalizado";
+            this.rbFinalizado.Size = new System.Drawing.Size(72, 17);
+            this.rbFinalizado.TabIndex = 0;
+            this.rbFinalizado.Text = "Finalizado";
+            this.rbFinalizado.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvHistoricoCliente
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 90);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(616, 375);
-            this.dataGridView1.TabIndex = 5;
+            this.dgvHistoricoCliente.AllowUserToAddRows = false;
+            this.dgvHistoricoCliente.AllowUserToDeleteRows = false;
+            this.dgvHistoricoCliente.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvHistoricoCliente.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvHistoricoCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvHistoricoCliente.BackgroundColor = System.Drawing.Color.White;
+            this.dgvHistoricoCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHistoricoCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Cod,
+            this.Nome,
+            this.Endereco,
+            this.Telefone,
+            this.Dn,
+            this.CadastradoPor,
+            this.DataAgendamento,
+            this.HoraAgendamento,
+            this.Servico,
+            this.StatusAgendamento,
+            this.Valor,
+            this.RecebidoPor,
+            this.DataRecebimento,
+            this.OpcaoPagamento,
+            this.Dinheiro,
+            this.Cartao,
+            this.Ticket,
+            this.StatusPagamento,
+            this.ObsConsulta});
+            this.dgvHistoricoCliente.Location = new System.Drawing.Point(6, 61);
+            this.dgvHistoricoCliente.Name = "dgvHistoricoCliente";
+            this.dgvHistoricoCliente.ReadOnly = true;
+            this.dgvHistoricoCliente.RowHeadersVisible = false;
+            this.dgvHistoricoCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvHistoricoCliente.Size = new System.Drawing.Size(616, 404);
+            this.dgvHistoricoCliente.TabIndex = 5;
+            // 
+            // Cod
+            // 
+            this.Cod.DataPropertyName = "Codigo";
+            this.Cod.HeaderText = "Codigo";
+            this.Cod.Name = "Cod";
+            this.Cod.ReadOnly = true;
+            // 
+            // Nome
+            // 
+            this.Nome.DataPropertyName = "Nome";
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            this.Nome.Visible = false;
+            // 
+            // Endereco
+            // 
+            this.Endereco.DataPropertyName = "Endereco";
+            this.Endereco.HeaderText = "Endereço";
+            this.Endereco.Name = "Endereco";
+            this.Endereco.ReadOnly = true;
+            this.Endereco.Visible = false;
+            // 
+            // Telefone
+            // 
+            this.Telefone.DataPropertyName = "Telefone";
+            this.Telefone.HeaderText = "Telefone";
+            this.Telefone.Name = "Telefone";
+            this.Telefone.ReadOnly = true;
+            this.Telefone.Visible = false;
+            // 
+            // Dn
+            // 
+            this.Dn.DataPropertyName = "Dn";
+            this.Dn.HeaderText = "Data de Nascimento";
+            this.Dn.Name = "Dn";
+            this.Dn.ReadOnly = true;
+            this.Dn.Visible = false;
+            // 
+            // CadastradoPor
+            // 
+            this.CadastradoPor.DataPropertyName = "CadastradoPor";
+            this.CadastradoPor.HeaderText = "Cadastrado Por";
+            this.CadastradoPor.Name = "CadastradoPor";
+            this.CadastradoPor.ReadOnly = true;
+            this.CadastradoPor.Visible = false;
+            // 
+            // DataAgendamento
+            // 
+            this.DataAgendamento.DataPropertyName = "DataAgendamento";
+            this.DataAgendamento.HeaderText = "Data do Agendamento";
+            this.DataAgendamento.Name = "DataAgendamento";
+            this.DataAgendamento.ReadOnly = true;
+            // 
+            // HoraAgendamento
+            // 
+            this.HoraAgendamento.DataPropertyName = "HoraAgendamento";
+            this.HoraAgendamento.HeaderText = "Hora do Agendamento";
+            this.HoraAgendamento.Name = "HoraAgendamento";
+            this.HoraAgendamento.ReadOnly = true;
+            // 
+            // Servico
+            // 
+            this.Servico.DataPropertyName = "Servico";
+            this.Servico.HeaderText = "Serviço";
+            this.Servico.Name = "Servico";
+            this.Servico.ReadOnly = true;
+            // 
+            // StatusAgendamento
+            // 
+            this.StatusAgendamento.DataPropertyName = "StatusAgendamento";
+            this.StatusAgendamento.HeaderText = "Status do Agendamento";
+            this.StatusAgendamento.Name = "StatusAgendamento";
+            this.StatusAgendamento.ReadOnly = true;
+            // 
+            // Valor
+            // 
+            this.Valor.DataPropertyName = "Valor";
+            this.Valor.HeaderText = "Valor";
+            this.Valor.Name = "Valor";
+            this.Valor.ReadOnly = true;
+            this.Valor.Visible = false;
+            // 
+            // RecebidoPor
+            // 
+            this.RecebidoPor.DataPropertyName = "RecebidoPor";
+            this.RecebidoPor.HeaderText = "Recebido Por";
+            this.RecebidoPor.Name = "RecebidoPor";
+            this.RecebidoPor.ReadOnly = true;
+            this.RecebidoPor.Visible = false;
+            // 
+            // DataRecebimento
+            // 
+            this.DataRecebimento.DataPropertyName = "DataRecebimento";
+            this.DataRecebimento.HeaderText = "Data do Recebimento";
+            this.DataRecebimento.Name = "DataRecebimento";
+            this.DataRecebimento.ReadOnly = true;
+            this.DataRecebimento.Visible = false;
+            // 
+            // OpcaoPagamento
+            // 
+            this.OpcaoPagamento.DataPropertyName = "OpcaoPagamento";
+            this.OpcaoPagamento.HeaderText = "Opção de Pagamento";
+            this.OpcaoPagamento.Name = "OpcaoPagamento";
+            this.OpcaoPagamento.ReadOnly = true;
+            this.OpcaoPagamento.Visible = false;
+            // 
+            // Dinheiro
+            // 
+            this.Dinheiro.DataPropertyName = "Dinheiro";
+            this.Dinheiro.HeaderText = "Dinheiro";
+            this.Dinheiro.Name = "Dinheiro";
+            this.Dinheiro.ReadOnly = true;
+            this.Dinheiro.Visible = false;
+            // 
+            // Cartao
+            // 
+            this.Cartao.DataPropertyName = "Cartao";
+            this.Cartao.HeaderText = "Cartão";
+            this.Cartao.Name = "Cartao";
+            this.Cartao.ReadOnly = true;
+            this.Cartao.Visible = false;
+            // 
+            // Ticket
+            // 
+            this.Ticket.DataPropertyName = "Ticket";
+            this.Ticket.HeaderText = "Ticket";
+            this.Ticket.Name = "Ticket";
+            this.Ticket.ReadOnly = true;
+            this.Ticket.Visible = false;
+            // 
+            // StatusPagamento
+            // 
+            this.StatusPagamento.DataPropertyName = "StatusPagamento";
+            this.StatusPagamento.HeaderText = "Status do Pagamento";
+            this.StatusPagamento.Name = "StatusPagamento";
+            this.StatusPagamento.ReadOnly = true;
+            this.StatusPagamento.Visible = false;
+            // 
+            // ObsConsulta
+            // 
+            this.ObsConsulta.DataPropertyName = "ObsConsulta";
+            this.ObsConsulta.HeaderText = "Observações da Consulta";
+            this.ObsConsulta.Name = "ObsConsulta";
+            this.ObsConsulta.ReadOnly = true;
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(496, 55);
+            this.btnPesquisar.Location = new System.Drawing.Point(494, 25);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(126, 30);
             this.btnPesquisar.TabIndex = 4;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label27);
             this.groupBox1.Controls.Add(this.label25);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Location = new System.Drawing.Point(344, 7);
+            this.groupBox1.Controls.Add(this.dtpAte);
+            this.groupBox1.Controls.Add(this.dtpDe);
+            this.groupBox1.Location = new System.Drawing.Point(173, 7);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(144, 78);
+            this.groupBox1.Size = new System.Drawing.Size(290, 48);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Data";
@@ -1543,7 +1801,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(4, 49);
+            this.label27.Location = new System.Drawing.Point(138, 21);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(26, 13);
             this.label27.TabIndex = 8;
@@ -1558,81 +1816,54 @@
             this.label25.TabIndex = 7;
             this.label25.Text = "De:";
             // 
-            // dateTimePicker2
+            // dtpAte
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(36, 46);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(96, 20);
-            this.dateTimePicker2.TabIndex = 1;
+            this.dtpAte.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpAte.Location = new System.Drawing.Point(170, 18);
+            this.dtpAte.Name = "dtpAte";
+            this.dtpAte.Size = new System.Drawing.Size(96, 20);
+            this.dtpAte.TabIndex = 1;
             // 
-            // dateTimePicker1
+            // dtpDe
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(36, 18);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(96, 20);
-            this.dateTimePicker1.TabIndex = 0;
+            this.dtpDe.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDe.Location = new System.Drawing.Point(36, 18);
+            this.dtpDe.Name = "dtpDe";
+            this.dtpDe.Size = new System.Drawing.Size(96, 20);
+            this.dtpDe.TabIndex = 0;
             // 
-            // txtDn
+            // printDocument1
             // 
-            this.txtDn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtDn.Location = new System.Drawing.Point(219, 111);
-            this.txtDn.Name = "txtDn";
-            this.txtDn.Size = new System.Drawing.Size(97, 20);
-            this.txtDn.TabIndex = 78;
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
-            // txtIdade
+            // printDialog1
             // 
-            this.txtIdade.Location = new System.Drawing.Point(359, 111);
-            this.txtIdade.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtIdade.Name = "txtIdade";
-            this.txtIdade.Size = new System.Drawing.Size(49, 20);
-            this.txtIdade.TabIndex = 79;
-            this.txtIdade.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.printDialog1.UseEXDialog = true;
             // 
-            // txtFilhos
+            // txtEstadoCivil
             // 
-            this.txtFilhos.Location = new System.Drawing.Point(573, 111);
-            this.txtFilhos.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtFilhos.Name = "txtFilhos";
-            this.txtFilhos.Size = new System.Drawing.Size(49, 20);
-            this.txtFilhos.TabIndex = 80;
-            this.txtFilhos.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.txtEstadoCivil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtEstadoCivil.FormattingEnabled = true;
+            this.txtEstadoCivil.Items.AddRange(new object[] {
+            "Solteiro",
+            "Casado",
+            "Separado",
+            "Divorciado",
+            "Viúvo"});
+            this.txtEstadoCivil.Location = new System.Drawing.Point(80, 137);
+            this.txtEstadoCivil.Name = "txtEstadoCivil";
+            this.txtEstadoCivil.Size = new System.Drawing.Size(128, 21);
+            this.txtEstadoCivil.TabIndex = 102;
             // 
-            // txtData
+            // lblCampoObrigatorio
             // 
-            this.txtData.Enabled = false;
-            this.txtData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtData.Location = new System.Drawing.Point(525, 6);
-            this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(97, 20);
-            this.txtData.TabIndex = 83;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(426, 10);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(93, 13);
-            this.label19.TabIndex = 82;
-            this.label19.Text = "Data do Cadastro:";
+            this.lblCampoObrigatorio.AutoSize = true;
+            this.lblCampoObrigatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCampoObrigatorio.Location = new System.Drawing.Point(6, 29);
+            this.lblCampoObrigatorio.Name = "lblCampoObrigatorio";
+            this.lblCampoObrigatorio.Size = new System.Drawing.Size(177, 16);
+            this.lblCampoObrigatorio.TabIndex = 84;
+            this.lblCampoObrigatorio.Text = "* = Campos Obrigatórios";
             // 
             // FrmCadastroCliente
             // 
@@ -1646,12 +1877,14 @@
             this.MaximizeBox = false;
             this.Name = "FrmCadastroCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FICHA DE ANAMNESE";
+            this.Text = "Tec Clinic: Cadastrar Ficha de Anamnese";
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.pnlInformacoesDoCliente.ResumeLayout(false);
             this.pnlInformacoesDoCliente.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFilhos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdade)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -1692,11 +1925,9 @@
             this.tpHistorico.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistoricoCliente)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIdade)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFilhos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1707,17 +1938,14 @@
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvHistoricoCliente;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DateTimePicker dtpAte;
+        private System.Windows.Forms.DateTimePicker dtpDe;
         private System.Windows.Forms.TabPage tpHistorico;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Panel pnlInformacoesDoCliente;
         private System.Windows.Forms.RichTextBox rtbTratamentoAnteriorQuais;
         private System.Windows.Forms.RichTextBox rtbHistoriaMolestia;
@@ -1729,7 +1957,6 @@
         private System.Windows.Forms.TextBox txtProfissao;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtEstadoCivil;
         private System.Windows.Forms.ComboBox cbxSexo;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
@@ -1846,5 +2073,32 @@
         private System.Windows.Forms.DateTimePicker txtDn;
         private System.Windows.Forms.DateTimePicker txtData;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton rbEmAberto;
+        private System.Windows.Forms.RadioButton rbFinalizado;
+        private System.Windows.Forms.Button ProcurarCliente;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cod;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Endereco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Telefone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CadastradoPor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataAgendamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoraAgendamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Servico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StatusAgendamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RecebidoPor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataRecebimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OpcaoPagamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dinheiro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cartao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ticket;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StatusPagamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ObsConsulta;
+        private System.Windows.Forms.ComboBox txtEstadoCivil;
+        private System.Windows.Forms.Label lblCampoObrigatorio;
     }
 }

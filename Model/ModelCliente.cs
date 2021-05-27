@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Model
+﻿namespace Model
 {
     public class ModelCliente
     {
@@ -28,6 +22,7 @@ namespace Model
         public string TratamentosAnteriores { get; set; }
         public string TratamentosAnterioresQuais { get; set; }
         public string GrauSatisfacao { get; set; }
+        public string DataCadastro { get; set; }
         public string AntecedentesAlergicos { get; set; }
         public string txtAntecedentesAlergicos { get; set; }
         public string txtDiagnosticoDePsoriaseOuHanseniase { get; set; }

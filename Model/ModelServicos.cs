@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Model
+﻿namespace Model
 {
     public class ModelServicos
     {
@@ -14,5 +8,6 @@ namespace Model
         public string Tipo { get; set; }
         public decimal Valor { get; set; }
         public string Descricao { get; set; }
+        public string Clinico { get; set; }
     }
 }

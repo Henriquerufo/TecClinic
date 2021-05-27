@@ -21,6 +21,11 @@ namespace View
         public FrmCadastroServico(ModelServicos modelServicos)
         {
             InitializeComponent();
+            ControllerTema controllerTema = new ControllerTema();
+            if (controllerTema.CarregarEnderecoImagem() != null)
+            {
+                pictureBox1.BackgroundImage = Image.FromFile(controllerTema.CarregarEnderecoImagem());
+            }
             if (modelServicos.acao == "Editar")
             {
                 codigo = modelServicos.Codigo;
@@ -49,41 +54,80 @@ namespace View
             {
                 acao = modelServicos.acao;
             }
+            Text = "Tec Clinic: " + modelServicos.acao + " Serviço";
         }
-
+        bool ValidarCampos()
+        {
+            if (string.IsNullOrWhiteSpace(txtNome.Text))
+            {
+                MessageBox.Show("Insera um serviço valido!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtNome.Focus();
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtTipo.Text))
+            {
+                MessageBox.Show("Insera o tipo de serviço valido!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtTipo.Focus();
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtValor.Text))
+            {
+                MessageBox.Show("Insera um valor valido!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtValor.Focus();
+                return false;
+            }
+            return true;
+        }
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            if (acao == "Cadastrar" && btnCadastrar.Text == "Cadastrar")
+            try
             {
-                modelServicos.Nome = txtNome.Text;
-                modelServicos.Tipo = txtTipo.Text;
-                modelServicos.Valor = Convert.ToDecimal(txtValor.Text);
-                modelServicos.Descricao = rtbDescricao.Text;
-                if (controllerServicos.Cadastrar(modelServicos))
+                if (acao == "Cadastrar" && btnCadastrar.Text == "Cadastrar" && ValidarCampos())
                 {
-                    MessageBox.Show("Cadastrado com sucesso!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    modelServicos.Nome = txtNome.Text;
+                    modelServicos.Tipo = txtTipo.Text;
+                    modelServicos.Valor = Convert.ToDecimal(txtValor.Text);
+                    modelServicos.Descricao = rtbDescricao.Text;
+                    modelServicos.Clinico = Properties.SettingsLogado.Default.Nome;
+                    if (!controllerServicos.VerificarServicoCadastrado(modelServicos) && controllerServicos.Cadastrar(modelServicos))
+                    {
+                        MessageBox.Show("Cadastrado com sucesso!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Serviço já cadastrado!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else if (acao == "Editar" && btnCadastrar.Text == "Editar")
+                {
+                    btnCadastrar.Text = "Salvar";
+                    btnCancelar.Text = "Cancelar";
+                    pnlServico.Enabled = true;
+                }
+                else if (acao == "Editar" && btnCadastrar.Text == "Salvar" && ValidarCampos())
+                {
+                    modelServicos.Codigo = codigo;
+                    modelServicos.Nome = txtNome.Text;
+                    modelServicos.Tipo = txtTipo.Text;
+                    modelServicos.Valor = Convert.ToDecimal(txtValor.Text);
+                    modelServicos.Descricao = rtbDescricao.Text;
+                    if (controllerServicos.Editar(modelServicos))
+                    {
+                        MessageBox.Show("Editado com sucesso!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
                 }
             }
-            else if (acao == "Editar" && btnCadastrar.Text == "Editar")
+            catch (Exception ex)
             {
-                btnCadastrar.Text = "Salvar";
-                btnCancelar.Text = "Cancelar";
-                pnlServico.Enabled = true;
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (acao == "Editar" && btnCadastrar.Text == "Salvar")
-            {
-                modelServicos.Codigo = codigo;
-                modelServicos.Nome = txtNome.Text;
-                modelServicos.Tipo = txtTipo.Text;
-                modelServicos.Valor = Convert.ToDecimal(txtValor.Text);
-                modelServicos.Descricao = rtbDescricao.Text;
-                if (controllerServicos.Editar(modelServicos))
-                {
-                    MessageBox.Show("Editado com sucesso!", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -318,7 +318,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmCadastrarTema";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmCadastrarTema";
+            this.Text = "Tec Clinic: Cadastrar Tema";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmCadastrarTema_FormClosing);
             this.pnlCadastrarTema.ResumeLayout(false);
             this.pnlCadastrarTema.PerformLayout();

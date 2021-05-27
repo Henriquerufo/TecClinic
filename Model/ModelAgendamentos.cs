@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+
 
 namespace Model
 {
@@ -18,6 +14,18 @@ namespace Model
         public string CadastradoPor { get; set; }
         public string DataAgendamento { get; set; }
         public string HoraAgendamento { get; set; }
-        public string Status { get; set; }
+        public string StatusAgendamento { get; set; }
+        public string Servico { get; set; }
+        public string Clinico { get; set; }
+        public decimal Valor { get; set; }
+        public List<string> HorariosCadastrados { get; set; }
+        public string RecebidoPor { get; set; }
+        public string DataRecebimento { get; set; }
+        public string OpcaoPagamento { get; set; }
+        public decimal Dinheiro { get; set; }
+        public decimal Cartao { get; set; }
+        public decimal Ticket { get; set; }
+        public string StatusPagamento { get; set; }
+        public string ObsConsulta { get; set; }
     }
 }

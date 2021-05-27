@@ -47,6 +47,7 @@
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Clinico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,6 +79,7 @@
             this.btnFechar.TabIndex = 62;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // lblPesquisar
             // 
@@ -180,6 +182,7 @@
             // 
             this.dgvServicos.AllowUserToAddRows = false;
             this.dgvServicos.AllowUserToDeleteRows = false;
+            this.dgvServicos.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvServicos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvServicos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -190,14 +193,17 @@
             this.Nome,
             this.Tipo,
             this.Valor,
-            this.Descricao});
+            this.Descricao,
+            this.Clinico});
             this.dgvServicos.Location = new System.Drawing.Point(13, 67);
+            this.dgvServicos.MultiSelect = false;
             this.dgvServicos.Name = "dgvServicos";
             this.dgvServicos.ReadOnly = true;
             this.dgvServicos.RowHeadersVisible = false;
             this.dgvServicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvServicos.Size = new System.Drawing.Size(777, 370);
             this.dgvServicos.TabIndex = 57;
+            this.dgvServicos.DoubleClick += new System.EventHandler(this.dgvServicos_DoubleClick);
             // 
             // Codigo
             // 
@@ -234,6 +240,13 @@
             this.Descricao.Name = "Descricao";
             this.Descricao.ReadOnly = true;
             // 
+            // Clinico
+            // 
+            this.Clinico.DataPropertyName = "Clinico";
+            this.Clinico.HeaderText = "Clínico";
+            this.Clinico.Name = "Clinico";
+            this.Clinico.ReadOnly = true;
+            // 
             // FrmGerenciadorServicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,7 +269,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmGerenciadorServicos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmGerenciadorServicos";
+            this.Text = "Tec Clinic: Gerenciador de Serviços";
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -283,5 +296,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Clinico;
     }
 }

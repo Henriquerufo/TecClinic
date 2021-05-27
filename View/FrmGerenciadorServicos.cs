@@ -16,10 +16,53 @@ namespace View
     {
         ControllerServicos controllerServicos = new ControllerServicos();
         ModelServicos modelServicos = new ModelServicos();
-        public FrmGerenciadorServicos()
+        bool retornarAgendamento;
+        public String RetornarNomeServico
+        {
+            get
+            {
+                if (dgvServicos.Rows.Count > 0 && retornarAgendamento)
+                {
+                    return dgvServicos.CurrentRow.Cells["Nome"].Value.ToString();
+                }
+                return null;
+            }
+        }
+        public String RetornarNomeClinico
+        {
+            get
+            {
+                if (dgvServicos.Rows.Count > 0 && retornarAgendamento)
+                {
+                    return dgvServicos.CurrentRow.Cells["Clinico"].Value.ToString();
+                }
+                return null;
+            }
+        }
+        public Decimal RetornarValorServico
+        {
+            get
+            {
+                if (dgvServicos.Rows.Count > 0 && retornarAgendamento)
+                {
+                    return Convert.ToDecimal(dgvServicos.CurrentRow.Cells["Valor"].Value.ToString());
+                }
+                return 0;
+            }
+        }
+        public FrmGerenciadorServicos(bool Retornar)
         {
             InitializeComponent();
             cbxFiltro.SelectedIndex = 0;
+            if (Retornar)
+            {
+                retornarAgendamento = Retornar;
+                btnCadastrar.Visible = false;
+                btnEditar.Visible = false;
+                btnDeletar.Visible = false;
+                btnConsultar.Visible = false;
+                Text = "Selecionar Serviço";
+            }
         }
         void Carregar()
         {
@@ -27,15 +70,27 @@ namespace View
             {
                 if (cbxFiltro.Text == "CODIGO")
                 {
-                    dgvServicos.DataSource = controllerServicos.CarregarPorCodigo(txtProcurar.Text);
+                    dgvServicos.DataSource = controllerServicos.CarregarPorCodigo(txtProcurar.Text, Properties.SettingsLogado.Default.Nome);
                 }
                 else if (cbxFiltro.Text == "TIPO")
                 {
-                    dgvServicos.DataSource = controllerServicos.CarregarPorTipo(txtProcurar.Text);
+                    dgvServicos.DataSource = controllerServicos.CarregarPorTipo(txtProcurar.Text, Properties.SettingsLogado.Default.Nome);
                 }
                 else if (cbxFiltro.Text == "NOME")
                 {
-                    dgvServicos.DataSource = controllerServicos.CarregarPorNome(txtProcurar.Text);
+                    dgvServicos.DataSource = controllerServicos.CarregarPorNome(txtProcurar.Text, Properties.SettingsLogado.Default.Nome);
+                }
+                if (retornarAgendamento && cbxFiltro.Text == "CODIGO")
+                {
+                    dgvServicos.DataSource = controllerServicos.CarregarTodosPorCodigo(txtProcurar.Text);
+                }
+                else if (retornarAgendamento && cbxFiltro.Text == "TIPO")
+                {
+                    dgvServicos.DataSource = controllerServicos.CarregarTodosPorTipo(txtProcurar.Text);
+                }
+                else if (retornarAgendamento && cbxFiltro.Text == "NOME")
+                {
+                    dgvServicos.DataSource = controllerServicos.CarregarTodosPorNome(txtProcurar.Text);
                 }
                 lblExibidosTotal.Text = "Exibidos total: " + dgvServicos.Rows.Count;
             }
@@ -127,6 +182,19 @@ namespace View
             {
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dgvServicos_DoubleClick(object sender, EventArgs e)
+        {
+            if (dgvServicos.Rows.Count > 0 && retornarAgendamento)
+            {
+                this.Close();
+            }
+        }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

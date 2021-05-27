@@ -201,7 +201,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmLoginLog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tec Sistemas: Consultar Log Por Login";
+            this.Text = "Tec Clinic: Consultar Log Por Login";
             ((System.ComponentModel.ISupportInitialize)(this.dgvLog)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

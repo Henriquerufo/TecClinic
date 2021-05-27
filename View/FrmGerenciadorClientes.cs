@@ -16,10 +16,65 @@ namespace View
     {
         ControllerCliente controllerCliente = new ControllerCliente();
         ModelCliente modelCliente = new ModelCliente();
-        public FrmGerenciadorClientes()
+        bool selecionarCliente;
+        public String RetornarNomeCliente
+        {
+            get
+            {
+                if (dgvCadastrados.Rows.Count > 0 && selecionarCliente)
+                {
+                    return dgvCadastrados.CurrentRow.Cells["Nome"].Value.ToString();
+                }
+                return null;
+            }
+        }
+        public String RetornarEnderecoCliente
+        {
+            get
+            {
+                if (dgvCadastrados.Rows.Count > 0 && selecionarCliente)
+                {
+                    return dgvCadastrados.CurrentRow.Cells["Endereco"].Value.ToString();
+                }
+                return null;
+            }
+        }
+        public String RetornarTelefoneCliente
+        {
+            get
+            {
+                if (dgvCadastrados.Rows.Count > 0 && selecionarCliente)
+                {
+                    return dgvCadastrados.CurrentRow.Cells["Telefone"].Value.ToString();
+                }
+                return null;
+            }
+        }
+        public String RetornarDnCliente
+        {
+            get
+            {
+                if (dgvCadastrados.Rows.Count > 0)
+                {
+                    return dgvCadastrados.CurrentRow.Cells["Dn"].Value.ToString();
+                }
+                return null;
+            }
+        }
+
+        public FrmGerenciadorClientes(bool SelecionarCliente)
         {
             InitializeComponent();
             cbxFiltro.SelectedIndex = 0;
+            if (SelecionarCliente)
+            {
+                selecionarCliente = SelecionarCliente;
+                btnCadastrar.Visible = false;
+                btnEditar.Visible = false;
+                btnDeletar.Visible = false;
+                btnConsultar.Visible = false;
+                Text = "Selecionar Cliente";
+            }
         }
         void Carregar()
         {
@@ -61,6 +116,7 @@ namespace View
             modelCliente.TratamentosAnteriores = dgvCadastrados.CurrentRow.Cells["TratamentosAnteriores"].Value.ToString();
             modelCliente.TratamentosAnterioresQuais = dgvCadastrados.CurrentRow.Cells["TratamentosAnterioresQuais"].Value.ToString();
             modelCliente.GrauSatisfacao = dgvCadastrados.CurrentRow.Cells["GrauSatisfacao"].Value.ToString();
+            modelCliente.DataCadastro = dgvCadastrados.CurrentRow.Cells["DataCadastro"].Value.ToString();
             modelCliente.AntecedentesAlergicos = dgvCadastrados.CurrentRow.Cells["AntecedentesAlergicos"].Value.ToString();
             modelCliente.txtAntecedentesAlergicos = dgvCadastrados.CurrentRow.Cells["txtAntecedentesAlergicos"].Value.ToString();
             modelCliente.txtDiagnosticoDePsoriaseOuHanseniase = dgvCadastrados.CurrentRow.Cells["txtDiagnosticoDePsoriaseOuHanseniase"].Value.ToString();
@@ -155,18 +211,34 @@ namespace View
         {
             try
             {
-                modelCliente.Codigo = Convert.ToInt32(dgvCadastrados.CurrentRow.Cells["Codigo"].Value.ToString());
-                modelCliente.Nome = dgvCadastrados.CurrentRow.Cells["Nome"].Value.ToString();
-                var result = MessageBox.Show("O cliente: " + modelCliente.Nome + " será excluido", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                if (result == DialogResult.OK)
+                if (dgvCadastrados.Rows.Count > 0)
                 {
-                    controllerCliente.Deletar(modelCliente);
+                    modelCliente.Codigo = Convert.ToInt32(dgvCadastrados.CurrentRow.Cells["Codigo"].Value.ToString());
+                    modelCliente.Nome = dgvCadastrados.CurrentRow.Cells["Nome"].Value.ToString();
+                    var result = MessageBox.Show("O cliente: " + modelCliente.Nome + " será excluido", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    if (result == DialogResult.OK)
+                    {
+                        controllerCliente.Deletar(modelCliente);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dgvCadastrados_DoubleClick(object sender, EventArgs e)
+        {
+            if (dgvCadastrados.Rows.Count > 0 && selecionarCliente)
+            {
+                this.Close();
+            }
+        }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

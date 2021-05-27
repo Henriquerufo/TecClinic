@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCadastroLogin));
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.txtConfirmarSenha = new System.Windows.Forms.TextBox();
@@ -40,9 +39,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lblCadastrar = new System.Windows.Forms.Label();
             this.pnlLogin = new System.Windows.Forms.Panel();
-            this.rbSupervisor = new System.Windows.Forms.RadioButton();
-            this.rbEstoquista = new System.Windows.Forms.RadioButton();
-            this.rbVendedor = new System.Windows.Forms.RadioButton();
+            this.rbClinico = new System.Windows.Forms.RadioButton();
+            this.rbSecretaria = new System.Windows.Forms.RadioButton();
             this.rbAdministrador = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlLogin.SuspendLayout();
@@ -149,9 +147,8 @@
             // 
             // pnlLogin
             // 
-            this.pnlLogin.Controls.Add(this.rbSupervisor);
-            this.pnlLogin.Controls.Add(this.rbEstoquista);
-            this.pnlLogin.Controls.Add(this.rbVendedor);
+            this.pnlLogin.Controls.Add(this.rbClinico);
+            this.pnlLogin.Controls.Add(this.rbSecretaria);
             this.pnlLogin.Controls.Add(this.rbAdministrador);
             this.pnlLogin.Controls.Add(this.txtConfirmarSenha);
             this.pnlLogin.Controls.Add(this.txtID);
@@ -164,42 +161,34 @@
             this.pnlLogin.Size = new System.Drawing.Size(253, 206);
             this.pnlLogin.TabIndex = 71;
             // 
-            // rbSupervisor
+            // rbClinico
             // 
-            this.rbSupervisor.AutoSize = true;
-            this.rbSupervisor.Location = new System.Drawing.Point(128, 173);
-            this.rbSupervisor.Name = "rbSupervisor";
-            this.rbSupervisor.Size = new System.Drawing.Size(75, 17);
-            this.rbSupervisor.TabIndex = 6;
-            this.rbSupervisor.Text = "Supervisor";
-            this.rbSupervisor.UseVisualStyleBackColor = true;
+            this.rbClinico.AutoSize = true;
+            this.rbClinico.Checked = true;
+            this.rbClinico.Location = new System.Drawing.Point(185, 163);
+            this.rbClinico.Name = "rbClinico";
+            this.rbClinico.Size = new System.Drawing.Size(58, 17);
+            this.rbClinico.TabIndex = 67;
+            this.rbClinico.TabStop = true;
+            this.rbClinico.Text = "Clínico";
+            this.rbClinico.UseVisualStyleBackColor = true;
             // 
-            // rbEstoquista
+            // rbSecretaria
             // 
-            this.rbEstoquista.AutoSize = true;
-            this.rbEstoquista.Location = new System.Drawing.Point(34, 173);
-            this.rbEstoquista.Name = "rbEstoquista";
-            this.rbEstoquista.Size = new System.Drawing.Size(74, 17);
-            this.rbEstoquista.TabIndex = 5;
-            this.rbEstoquista.Text = "Estoquista";
-            this.rbEstoquista.UseVisualStyleBackColor = true;
-            // 
-            // rbVendedor
-            // 
-            this.rbVendedor.AutoSize = true;
-            this.rbVendedor.Checked = true;
-            this.rbVendedor.Location = new System.Drawing.Point(128, 150);
-            this.rbVendedor.Name = "rbVendedor";
-            this.rbVendedor.Size = new System.Drawing.Size(71, 17);
-            this.rbVendedor.TabIndex = 4;
-            this.rbVendedor.TabStop = true;
-            this.rbVendedor.Text = "Vendedor";
-            this.rbVendedor.UseVisualStyleBackColor = true;
+            this.rbSecretaria.AutoSize = true;
+            this.rbSecretaria.Checked = true;
+            this.rbSecretaria.Location = new System.Drawing.Point(105, 163);
+            this.rbSecretaria.Name = "rbSecretaria";
+            this.rbSecretaria.Size = new System.Drawing.Size(73, 17);
+            this.rbSecretaria.TabIndex = 4;
+            this.rbSecretaria.TabStop = true;
+            this.rbSecretaria.Text = "Secretária";
+            this.rbSecretaria.UseVisualStyleBackColor = true;
             // 
             // rbAdministrador
             // 
             this.rbAdministrador.AutoSize = true;
-            this.rbAdministrador.Location = new System.Drawing.Point(34, 150);
+            this.rbAdministrador.Location = new System.Drawing.Point(11, 163);
             this.rbAdministrador.Name = "rbAdministrador";
             this.rbAdministrador.Size = new System.Drawing.Size(88, 17);
             this.rbAdministrador.TabIndex = 3;
@@ -230,7 +219,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmCadastroLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tec Sistemas: Cadastrar Novo Login";
+            this.Text = "Tec Clinic: Cadastrar Login";
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -252,10 +241,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblCadastrar;
         private System.Windows.Forms.Panel pnlLogin;
-        private System.Windows.Forms.RadioButton rbVendedor;
+        private System.Windows.Forms.RadioButton rbSecretaria;
         private System.Windows.Forms.RadioButton rbAdministrador;
-        private System.Windows.Forms.RadioButton rbSupervisor;
-        private System.Windows.Forms.RadioButton rbEstoquista;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.RadioButton rbClinico;
     }
 }

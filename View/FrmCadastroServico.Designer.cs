@@ -31,17 +31,18 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lblCadastrar = new System.Windows.Forms.Label();
             this.pnlServico = new System.Windows.Forms.Panel();
-            this.txtNome = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtTipo = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.rtbDescricao = new System.Windows.Forms.RichTextBox();
             this.txtValor = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.rtbDescricao = new System.Windows.Forms.RichTextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.txtTipo = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
+            this.lblCampoObrigatorio = new System.Windows.Forms.Label();
             this.pnlServico.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -81,23 +82,42 @@
             this.pnlServico.Size = new System.Drawing.Size(369, 169);
             this.pnlServico.TabIndex = 94;
             // 
-            // txtNome
+            // label4
             // 
-            this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(57, 7);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(309, 22);
-            this.txtNome.TabIndex = 47;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 64);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 16);
+            this.label4.TabIndex = 53;
+            this.label4.Text = "Descrição:";
             // 
-            // label1
+            // rtbDescricao
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 16);
-            this.label1.TabIndex = 46;
-            this.label1.Text = "Nome:";
+            this.rtbDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbDescricao.Location = new System.Drawing.Point(6, 83);
+            this.rtbDescricao.Name = "rtbDescricao";
+            this.rtbDescricao.Size = new System.Drawing.Size(360, 72);
+            this.rtbDescricao.TabIndex = 52;
+            this.rtbDescricao.Text = "";
+            // 
+            // txtValor
+            // 
+            this.txtValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValor.Location = new System.Drawing.Point(256, 33);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(110, 22);
+            this.txtValor.TabIndex = 51;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(202, 36);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 16);
+            this.label3.TabIndex = 50;
+            this.label3.Text = "Valor:*";
             // 
             // txtTipo
             // 
@@ -113,9 +133,27 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(3, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 16);
+            this.label2.Size = new System.Drawing.Size(44, 16);
             this.label2.TabIndex = 48;
-            this.label2.Text = "Tipo:";
+            this.label2.Text = "Tipo:*";
+            // 
+            // txtNome
+            // 
+            this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNome.Location = new System.Drawing.Point(130, 7);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(236, 22);
+            this.txtNome.TabIndex = 47;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(121, 16);
+            this.label1.TabIndex = 46;
+            this.label1.Text = "Nome do Serviço:*";
             // 
             // pictureBox1
             // 
@@ -127,43 +165,6 @@
             this.pictureBox1.TabIndex = 93;
             this.pictureBox1.TabStop = false;
             // 
-            // txtValor
-            // 
-            this.txtValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValor.Location = new System.Drawing.Point(247, 33);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(119, 22);
-            this.txtValor.TabIndex = 51;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(202, 36);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 16);
-            this.label3.TabIndex = 50;
-            this.label3.Text = "Valor:";
-            // 
-            // rtbDescricao
-            // 
-            this.rtbDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbDescricao.Location = new System.Drawing.Point(6, 83);
-            this.rtbDescricao.Name = "rtbDescricao";
-            this.rtbDescricao.Size = new System.Drawing.Size(360, 63);
-            this.rtbDescricao.TabIndex = 52;
-            this.rtbDescricao.Text = "";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 64);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 16);
-            this.label4.TabIndex = 53;
-            this.label4.Text = "Descrição:";
-            // 
             // btnCancelar
             // 
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -174,6 +175,7 @@
             this.btnCancelar.TabIndex = 95;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnCadastrar
             // 
@@ -187,19 +189,33 @@
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
+            // lblCampoObrigatorio
+            // 
+            this.lblCampoObrigatorio.AutoSize = true;
+            this.lblCampoObrigatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCampoObrigatorio.Location = new System.Drawing.Point(12, 87);
+            this.lblCampoObrigatorio.Name = "lblCampoObrigatorio";
+            this.lblCampoObrigatorio.Size = new System.Drawing.Size(177, 16);
+            this.lblCampoObrigatorio.TabIndex = 96;
+            this.lblCampoObrigatorio.Text = "* = Campos Obrigatórios";
+            // 
             // FrmCadastroServico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(393, 338);
+            this.Controls.Add(this.lblCampoObrigatorio);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.pnlServico);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lblCadastrar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FrmCadastroServico";
-            this.Text = "FrmCadastroServico";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tec Clinic: Cadastrar Serviço";
             this.pnlServico.ResumeLayout(false);
             this.pnlServico.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -224,5 +240,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.Label lblCampoObrigatorio;
     }
 }

@@ -47,9 +47,12 @@
     <Compile Include="ModelCliente.cs" />
     <Compile Include="ModelConfiguracaoSQL.cs" />
     <Compile Include="ModelConfiguracaoSQLCentral.cs" />
+    <Compile Include="ModelFinanceiro.cs" />
+    <Compile Include="ModelHorario.cs" />
     <Compile Include="ModelLogin.cs" />
     <Compile Include="ModelServicos.cs" />
     <Compile Include="ModelTema.cs" />
+    <Compile Include="ModelTicket.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

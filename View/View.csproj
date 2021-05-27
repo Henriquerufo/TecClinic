@@ -50,6 +50,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmConsultarAniversario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultarAniversario.Designer.cs">
+      <DependentUpon>FrmConsultarAniversario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFinanceiroAgendamentoRelatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFinanceiroAgendamentoRelatorio.Designer.cs">
+      <DependentUpon>FrmFinanceiroAgendamentoRelatorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAgendamentoReceber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAgendamentoReceber.Designer.cs">
+      <DependentUpon>FrmAgendamentoReceber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAgendamentoReceberOpcaoPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAgendamentoReceberOpcaoPagamento.Designer.cs">
+      <DependentUpon>FrmAgendamentoReceberOpcaoPagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAgendamentoReceberCartao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAgendamentoReceberCartao.Designer.cs">
+      <DependentUpon>FrmAgendamentoReceberCartao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAgendamentoReceberDinheiro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAgendamentoReceberDinheiro.Designer.cs">
+      <DependentUpon>FrmAgendamentoReceberDinheiro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAgendamentoReceberTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAgendamentoReceberTicket.Designer.cs">
+      <DependentUpon>FrmAgendamentoReceberTicket.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCadastrarTema.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +109,12 @@
     </Compile>
     <Compile Include="FrmCadastroCliente.Designer.cs">
       <DependentUpon>FrmCadastroCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCadastroHorario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadastroHorario.Designer.cs">
+      <DependentUpon>FrmCadastroHorario.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCadastroLogin.cs">
       <SubType>Form</SubType>
@@ -86,6 +134,18 @@
     <Compile Include="FrmConfiguracaoSQL.Designer.cs">
       <DependentUpon>FrmConfiguracaoSQL.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmFinanceiroAgendamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFinanceiroAgendamento.Designer.cs">
+      <DependentUpon>FrmFinanceiroAgendamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFinanceiroAgendamentoConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFinanceiroAgendamentoConsulta.Designer.cs">
+      <DependentUpon>FrmFinanceiroAgendamentoConsulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGerenciadorAgendamentos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +157,12 @@
     </Compile>
     <Compile Include="FrmGerenciadorClientes.Designer.cs">
       <DependentUpon>FrmGerenciadorClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGerenciadorHorario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGerenciadorHorario.Designer.cs">
+      <DependentUpon>FrmGerenciadorHorario.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmGerenciadorLogins.cs">
       <SubType>Form</SubType>
@@ -115,6 +181,12 @@
     </Compile>
     <Compile Include="FrmGerenciadorTema.Designer.cs">
       <DependentUpon>FrmGerenciadorTema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGerenciadorTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGerenciadorTicket.Designer.cs">
+      <DependentUpon>FrmGerenciadorTicket.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
@@ -146,6 +218,27 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>SettingsLogado.settings</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmConsultarAniversario.resx">
+      <DependentUpon>FrmConsultarAniversario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFinanceiroAgendamentoRelatorio.resx">
+      <DependentUpon>FrmFinanceiroAgendamentoRelatorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAgendamentoReceber.resx">
+      <DependentUpon>FrmAgendamentoReceber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAgendamentoReceberOpcaoPagamento.resx">
+      <DependentUpon>FrmAgendamentoReceberOpcaoPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAgendamentoReceberCartao.resx">
+      <DependentUpon>FrmAgendamentoReceberCartao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAgendamentoReceberDinheiro.resx">
+      <DependentUpon>FrmAgendamentoReceberDinheiro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAgendamentoReceberTicket.resx">
+      <DependentUpon>FrmAgendamentoReceberTicket.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCadastrarTema.resx">
       <DependentUpon>FrmCadastrarTema.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,8 +248,20 @@
     <EmbeddedResource Include="FrmCadastroCliente.resx">
       <DependentUpon>FrmCadastroCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadastroHorario.resx">
+      <DependentUpon>FrmCadastroHorario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadastroLogin.resx">
+      <DependentUpon>FrmCadastroLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCadastroServico.resx">
       <DependentUpon>FrmCadastroServico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFinanceiroAgendamento.resx">
+      <DependentUpon>FrmFinanceiroAgendamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFinanceiroAgendamentoConsulta.resx">
+      <DependentUpon>FrmFinanceiroAgendamentoConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGerenciadorAgendamentos.resx">
       <DependentUpon>FrmGerenciadorAgendamentos.cs</DependentUpon>
@@ -164,8 +269,23 @@
     <EmbeddedResource Include="FrmGerenciadorClientes.resx">
       <DependentUpon>FrmGerenciadorClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmGerenciadorHorario.resx">
+      <DependentUpon>FrmGerenciadorHorario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGerenciadorLogins.resx">
+      <DependentUpon>FrmGerenciadorLogins.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGerenciadorServicos.resx">
       <DependentUpon>FrmGerenciadorServicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGerenciadorTema.resx">
+      <DependentUpon>FrmGerenciadorTema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGerenciadorTicket.resx">
+      <DependentUpon>FrmGerenciadorTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoginLog.resx">
+      <DependentUpon>FrmLoginLog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
@@ -204,6 +324,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SuaLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2021-04-01 at 00.19.42.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2021-04-01 at 00.17.48.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prancheta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\timing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\historia-clinica.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\birthday-cake.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

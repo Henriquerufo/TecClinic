@@ -16,8 +16,6 @@ namespace View
     public partial class FrmCadastroLogin : Form
     {
         string Codigo;
-        int loginsCadastrados;
-        int loginsContratados;
         ModelLogin modelLogin = new ModelLogin();
         ControllerLogin controllerLogin = new ControllerLogin();
         ControllerTema controllerTema = new ControllerTema();
@@ -43,17 +41,13 @@ namespace View
                 {
                     rbAdministrador.Checked = true;
                 }
-                if (modelLogin.Nivel == "Vendedor")
+                if (modelLogin.Nivel == "Secretaria")
                 {
-                    rbVendedor.Checked = true;
+                    rbSecretaria.Checked = true;
                 }
-                if (modelLogin.Nivel == "Estoquista")
+                if (modelLogin.Nivel == "Clínico")
                 {
-                    rbEstoquista.Checked = true;
-                }
-                if (modelLogin.Nivel == "Supervisor")
-                {
-                    rbSupervisor.Checked = true;
+                    rbClinico.Checked = true;
                 }
             }
             if (modelLogin.Consultar == true)
@@ -71,17 +65,13 @@ namespace View
                 {
                     rbAdministrador.Checked = true;
                 }
-                if (modelLogin.Nivel == "Vendedor")
+                if (modelLogin.Nivel == "Secretaria")
                 {
-                    rbVendedor.Checked = true;
+                    rbSecretaria.Checked = true;
                 }
-                if (modelLogin.Nivel == "Estoquista")
+                if (modelLogin.Nivel == "Clínico")
                 {
-                    rbEstoquista.Checked = true;
-                }
-                if (modelLogin.Nivel == "Supervisor")
-                {
-                    rbSupervisor.Checked = true;
+                    rbClinico.Checked = true;
                 }
             }
         }
@@ -115,19 +105,15 @@ namespace View
 
                     if (rbAdministrador.Checked == true)
                     {
-                        modelLogin.Nivel = "Administrador";
+                        modelLogin.Nivel = rbAdministrador.Text;
                     }
-                    if (rbVendedor.Checked == true)
+                    if (rbSecretaria.Checked == true)
                     {
-                        modelLogin.Nivel = "Vendedor";
+                        modelLogin.Nivel = rbSecretaria.Text;
                     }
-                    if (rbEstoquista.Checked == true)
+                    if (rbClinico.Checked == true)
                     {
-                        modelLogin.Nivel = "Estoquista";
-                    }
-                    if (rbSupervisor.Checked == true)
-                    {
-                        modelLogin.Nivel = "Supervisor";
+                        modelLogin.Nivel = rbClinico.Text;
                     }
                     if (controllerLogin.Editar(modelLogin))
                     {
@@ -135,7 +121,6 @@ namespace View
                         pnlLogin.Enabled = false;
                         btnCadastrar.Text = "Editar";
                     }
-
                 }
                 //Cadastra um novo usuario
                 else
@@ -152,19 +137,15 @@ namespace View
                     }
                     if (rbAdministrador.Checked == true)
                     {
-                        modelLogin.Nivel = "Administrador";
+                        modelLogin.Nivel = rbAdministrador.Text;
                     }
-                    if (rbVendedor.Checked == true)
+                    if (rbSecretaria.Checked == true)
                     {
-                        modelLogin.Nivel = "Vendedor";
+                        modelLogin.Nivel = rbSecretaria.Text;
                     }
-                    if (rbEstoquista.Checked == true)
+                    if (rbClinico.Checked == true)
                     {
-                        modelLogin.Nivel = "Estoquista";
-                    }
-                    if (rbSupervisor.Checked == true)
-                    {
-                        modelLogin.Nivel = "Supervisor";
+                        modelLogin.Nivel = rbClinico.Text;
                     }
                     if (controllerLogin.VerificarLogin(modelLogin) == null && !string.IsNullOrWhiteSpace(txtSenha.Text))
                     {

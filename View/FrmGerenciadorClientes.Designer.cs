@@ -61,6 +61,7 @@
             this.TratamentosAnteriores = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TratamentosAnterioresQuais = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GrauSatisfacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataCadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AntecedentesAlergicos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtAntecedentesAlergicos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtDiagnosticoDePsoriaseOuHanseniase = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -125,6 +126,7 @@
             this.btnFechar.TabIndex = 49;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // lblPesquisar
             // 
@@ -226,6 +228,7 @@
             // 
             this.dgvCadastrados.AllowUserToAddRows = false;
             this.dgvCadastrados.AllowUserToDeleteRows = false;
+            this.dgvCadastrados.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvCadastrados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCadastrados.BackgroundColor = System.Drawing.Color.White;
@@ -250,6 +253,7 @@
             this.TratamentosAnteriores,
             this.TratamentosAnterioresQuais,
             this.GrauSatisfacao,
+            this.DataCadastro,
             this.AntecedentesAlergicos,
             this.txtAntecedentesAlergicos,
             this.txtDiagnosticoDePsoriaseOuHanseniase,
@@ -284,12 +288,14 @@
             this.Trombose,
             this.txtTrombose});
             this.dgvCadastrados.Location = new System.Drawing.Point(12, 65);
+            this.dgvCadastrados.MultiSelect = false;
             this.dgvCadastrados.Name = "dgvCadastrados";
             this.dgvCadastrados.ReadOnly = true;
             this.dgvCadastrados.RowHeadersVisible = false;
             this.dgvCadastrados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCadastrados.Size = new System.Drawing.Size(777, 370);
             this.dgvCadastrados.TabIndex = 44;
+            this.dgvCadastrados.DoubleClick += new System.EventHandler(this.dgvCadastrados_DoubleClick);
             // 
             // Codigo
             // 
@@ -434,6 +440,14 @@
             this.GrauSatisfacao.Name = "GrauSatisfacao";
             this.GrauSatisfacao.ReadOnly = true;
             this.GrauSatisfacao.Visible = false;
+            // 
+            // DataCadastro
+            // 
+            this.DataCadastro.DataPropertyName = "DataCadastro";
+            this.DataCadastro.HeaderText = "Data do Cadastro";
+            this.DataCadastro.Name = "DataCadastro";
+            this.DataCadastro.ReadOnly = true;
+            this.DataCadastro.Visible = false;
             // 
             // AntecedentesAlergicos
             // 
@@ -719,7 +733,7 @@
             this.Controls.Add(this.dgvCadastrados);
             this.Name = "FrmGerenciadorClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmGerenciadorClientes";
+            this.Text = "Tec Clinic: Gerenciador de Clientes";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCadastrados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -760,6 +774,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TratamentosAnteriores;
         private System.Windows.Forms.DataGridViewTextBoxColumn TratamentosAnterioresQuais;
         private System.Windows.Forms.DataGridViewTextBoxColumn GrauSatisfacao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataCadastro;
         private System.Windows.Forms.DataGridViewTextBoxColumn AntecedentesAlergicos;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtAntecedentesAlergicos;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtDiagnosticoDePsoriaseOuHanseniase;
